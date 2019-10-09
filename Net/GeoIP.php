@@ -839,7 +839,7 @@ class Net_GeoIP
             fseek($this->filehandle, $record_pointer, SEEK_SET);
             $org_buf = fread($this->filehandle, self::MAX_ORG_RECORD_LENGTH);
         }
-        $org_buf = substr($org_buf, 0, strpos($org_buf, 0));
+        $org_buf = substr($org_buf, 0, strpos($org_buf, "\u{0000}"));
         return $org_buf;
     }
 
